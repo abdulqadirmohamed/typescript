@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 
-const SamplePost = () => {
+const SamplePost = async () => {
 const posts = [
   {id: 1, title: 'Post title 1', desc: 'Post description'},
   {id: 2, title: 'Post title 2', desc: 'Post description'},
