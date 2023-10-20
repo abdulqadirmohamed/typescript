@@ -1,11 +1,21 @@
 import React from 'react'
-import { PostProps } from '@/types/types'
+import { TPosts } from '@/app/types'
 
-const PostCards = ({title, body}: PostProps) => {
+const PostCards = ({ title, content, author, catName, createdAt }: TPosts) => {
     return (
         <div className='border-[1px] border-black p-5 m-4 text-left'>
-            <h1 className='text-xl font-bold capitalize'>{title}</h1>
-            <p>{body}</p>
+            <div className='my-5 flex justify-between items-center'>
+                <span className='font-bold text-xl'>{author.name}</span>
+                <span>{createdAt}</span>
+            </div>
+            <hr />
+            <h1 className='text-xl my-4 font-bold capitalize'>{title}</h1>
+            <p>{content}</p>
+            <div className='my-10'>
+
+                <span className='bg-red-500 mx-2 px-4 py-2 rounded-md'>{catName}</span>
+
+            </div>
         </div>
     )
 }

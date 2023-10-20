@@ -1,27 +1,35 @@
 import React from 'react'
 import PostCards from './PostCards'
 import { PostProps } from '@/types/types'
+import { TPosts } from '@/app/types'
 
 
-async function getData() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
 
-    if (!res.ok) {
-        throw new Error('Field to fetch data')
+async function getPosts(): Promise<TPosts[] | null> {
+    try {
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts`)
+        if (res.ok) {
+            const posts = await res.json()
+            return posts
+        }
+    } catch (error) {
+
     }
-    return res.json()
+    return null
+
 }
 
 
 const Post = async () => {
-    const data: PostProps[] = await getData()
+    const posts = await getPosts()
     return (
         <div className='shadow-md p-4 grid grid-cols-2'>
-            {data.map((post) => (
-                <PostCards key={post.id} {...post}/>
+            {posts?.map((post: TPosts) => (
+                <PostCards key={post.id} {...post} />
             ))}
         </div>
     )
 }
 
+// <PostCards key={post.id} {...post} />
 export default Post
