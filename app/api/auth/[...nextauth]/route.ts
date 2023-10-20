@@ -5,7 +5,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/lib/prismadb";
 
 export const authOptions: AuthOptions = {
-   adapter : PrismaAdapter(prisma),
+  adapter: PrismaAdapter(prisma),
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID as string,
