@@ -1,5 +1,6 @@
 import React from 'react'
 import { TPosts } from '@/app/types'
+import Link from 'next/link'
 
 const PostCards = ({ title, content, author, catName, createdAt }: TPosts) => {
     
@@ -21,7 +22,7 @@ const PostCards = ({ title, content, author, catName, createdAt }: TPosts) => {
             <h1 className='text-xl my-4 font-bold capitalize'>{title}</h1>
             <p>{content}</p>
             <div className='my-10'>
-                <span className='bg-red-500 mx-2 px-4 py-2 rounded-md'>{catName}</span>
+                <Link href={`category/${catName}`} className={`${catName} mx-2 px-4 py-2 rounded-md`}>{catName}</Link>
             </div>
         </div>
     )

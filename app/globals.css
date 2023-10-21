@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 
+.Technology{
+    background-color: green;
+}
+.AI{
+    background-color: red;
+}
