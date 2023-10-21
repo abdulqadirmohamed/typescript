@@ -19,7 +19,7 @@ const Categories = async () => {
     return (
         <div className='flex gap-4'>
             {categories?.map((category: TCategory) => (
-                <Link className='bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md' href={`#`}>{category.catName}</Link>
+                <Link href={`/category/${category.catName}`} className='bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded-md' >{category.catName}</Link>
             ))}
         </div>
     )
